@@ -1,6 +1,6 @@
 #!/bin/sh
 set -eu
 
-uv run zig fmt transport.zig build.zig
+uv run python -m ziglang fmt transport.zig build.zig
 uv run ruff check --fix .
 uv run ruff format .

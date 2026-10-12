@@ -14,8 +14,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v7
       - run: uv sync --python ${{ matrix.python-version }}
-      - run: uv run zig fmt --check transport.zig build.zig
-      - run: uv run zig build test
+      - run: uv run python -m ziglang fmt --check transport.zig build.zig
+      - run: uv run python -m ziglang build test
       - run: uv run ruff check .
       - run: uv run ruff format --check .
       - run: uv run pytest -q tests
