@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling==1.32.0", "hatch-ziglang==0.2.1", "ziglang==0.16.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "httpx2-zig"
+version = "0.1.0"
+description = "An experimental Zig HTTP/1.1 transport for HTTPX2"
+readme = "README.md"
+license = "BSD-3-Clause"
+authors = [{ name = "Marcelo Trylesinski" }]
+requires-python = ">=3.10"
+dependencies = ["httpx2>=2.0"]
+
+[project.urls]
+Source = "https://github.com/Kludex/httpx2-zig"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.16", "ziglang==0.16.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["httpx2_zig"]
+
+[tool.hatch.build.targets.wheel.hooks.zig]
+package = "httpx2_zig"
+optimize = "ReleaseSafe"
+
+[tool.hatch.build.targets.sdist]
+include = ["httpx2_zig", "transport.zig", "python_shim.c", "build.zig", "build.zig.zon", "README.md", "LICENSE", "tests"]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "FA", "UP", "RUF100"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true

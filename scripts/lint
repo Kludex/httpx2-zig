@@ -1,0 +1,6 @@
+#!/bin/sh
+set -eu
+
+uv run zig fmt transport.zig build.zig
+uv run ruff check --fix .
+uv run ruff format .

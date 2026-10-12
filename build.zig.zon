@@ -1,0 +1,13 @@
+.{
+    .name = .httpx2_transport,
+    .version = "0.1.0",
+    .fingerprint = 0xf9034b1a37ec7548, // Generated for this package; changing it changes package identity.
+    .minimum_zig_version = "0.16.0",
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "transport.zig",
+        "python_shim.c",
+        "LICENSE",
+    },
+}
